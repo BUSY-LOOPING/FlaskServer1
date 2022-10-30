@@ -1,8 +1,5 @@
-import sys
-if sys.version_info[0:2] != (3, 9):
-    raise Exception('Requires python 3.9')
-
 from flask import Flask, request, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -15,4 +12,5 @@ def return_ascii() :
     return dct
 
 if __name__ == "__main__" :
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', debug=True, port=port)
