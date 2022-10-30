@@ -1,3 +1,7 @@
+import sys
+if sys.version_info[0:2] != (3, 9):
+    raise Exception('Requires python 3.9')
+
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
